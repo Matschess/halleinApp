@@ -1,0 +1,17 @@
+.swiper-container-food-vertical{
+  background-image: url('../../assets/imgs/food_background.png');
+  background-size: cover;
+  background-position: top;
+}
+
+.foodWrapper{
+  width: 100%;
+  height: 100vh; // ?????????????????? Wieso
+  text-align: center;
+  h1 {
+    font-size: 60px;
+    color: #fff;
+    text-transform: uppercase;
+    padding-top: 60px;
+  }
+}

@@ -1,0 +1,163 @@
+* {
+  font-family: $light-font;
+  font-weight: normal;
+}
+
+.view {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-family: $bold-font;
+  font-size: 18px;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+// Inputs
+input {
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+}
+
+.material-icons {
+  &.doneicon, &.cancelicon {
+    position: fixed;
+    font-size: 30px;
+    background-color: #27ae60;
+    color: #fff;
+    bottom: 35px;
+    right: 35px;
+    padding: 15px;
+    border-radius: 50%;
+  }
+  &.cancelicon {
+    background-color: #e74c3c;
+    right: 110px;
+  }
+}
+
+.checkbox {
+  display: inline-block;
+  input {
+    display: none;
+  }
+  span {
+    padding-left: 25px;
+
+  }
+  div:before {
+    visibility: visible;
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: rgba(128, 128, 128, 0.3);
+  }
+  input:checked + div:before {
+    background-image: url('../../assets/icons/done.png');
+    background-size: cover;
+  }
+}
+
+/* The switch - the box around the slider */
+.switchLabel {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 28px;
+  vertical-align: middle;
+
+  input {
+    display: none;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    vertical-align: middle;
+    &.transparent {
+
+    }
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  &.transparent {
+    .slider {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    input:checked + .slider {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  input:checked + .slider {
+    background-color: #ee8360;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #ee8360;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+    height: 28px;
+    width: 55px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+}

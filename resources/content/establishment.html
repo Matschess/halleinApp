@@ -1,0 +1,21 @@
+<div class="establishmentWrapper">
+    <div class="container">
+        <h1>Einrichtung</h1>
+
+        <p>Wir benötigen einige Daten, um die App für Sie persönlich einzigartig zu gestalten. Die Daten werden jedoch nur auf Ihrem Gerät gespeichert und nicht weitergegeben.</p>
+        <h2>Geschlecht:</h2>
+        <div class="sexes">
+            <div class="sex" ng-class="{'active': $index==sexes.active}" ng-repeat="sex in sexes.options" ng-click="sexes.active = $index">{{sex.name}}</div></div>
+        <br>
+        <h2>Geburtstag:</h2>
+            <input type="date" class="birthday" ng-class="{'active': input.birthday}" ng-model="input.birthday"/>
+        <br>
+        <br>
+        <label class="checkbox">
+            <input type="checkbox" ng-model="input.pupil">
+            <div></div>
+            <span>Ich bin Schüler</span>
+        </label>
+        <div ng-click="save()"><i class="material-icons doneicon">done</i></div>
+    </div>
+</div>

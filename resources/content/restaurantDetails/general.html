@@ -1,0 +1,20 @@
+<div class="general">
+    <p>{{data.description}}</p>
+    <div class="left">
+    <div class="icons">
+        <i class="material-icons" ng-repeat="option in options">{{option.icon}}</i>
+    </div>
+    </div>
+    <div class="right border">
+        <div ng-if="data.tel"><i class="material-icons">phone</i><a href="tel:{{data.tel}}">{{data.tel}}</a></div>
+        <div ng-if="data.website"><i class="material-icons">public</i><a ng-href="{{data.website}}">{{data.websiteFormatted}}</a></div>
+        <div class="openingTimes" ng-class="openingTimes.status">
+            <i class="material-icons">access_time</i><span>{{openingTimes.text}}:</span>
+            <div class="times">
+            {{openingTimes.times.opens | date: 'HH'}}-{{openingTimes.times.closesHalf | date: 'HH'}} Uhr und
+            <br/>
+            {{openingTimes.times.opensHalf | date: 'HH'}}-{{openingTimes.times.closes | date: 'HH'}} Uhr
+            </div>
+        </div>
+    </div>
+</div>

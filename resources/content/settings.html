@@ -1,0 +1,44 @@
+<div class="settingsWrapper" ng-controller="settingsController">
+    <h1>Einstellungen</h1>
+
+    <div class="block">
+        <h2>Allgemein:</h2>
+        <label class="checkbox">
+            <input type="checkbox" ng-model="input.general.pupil">
+            <div></div>
+            <span>Ich bin Schüler</span>
+        </label>
+        <br>
+        <label class="checkbox">
+            <input type="checkbox" ng-model="input.general.tourist">
+            <div></div>
+            <span>Ich bin Tourist</span>
+        </label>
+    </div>
+    <div class="block">
+        <h2>Interessen:</h2>
+        <div class="interests">
+            <div class="interest" ng-class="[{active: interest.active}, interest.type]" ng-repeat="interest in input.interests" ng-click="interest.active = !interest.active">
+                <span>{{interest.name}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="block">
+        <h2>Benachrichtigungen:</h2>
+        <label class="switch transparent">
+            <input type="checkbox" ng-model="input.newsletter.active">
+            <div class="slider round"></div>
+        </label>
+        <span class="switchLabel" ng-if="input.newsletter.active">Newsletter ein</span>
+        <span class="switchLabel" ng-if="!input.newsletter.active">Newsletter aus</span>
+        <br/>
+        <label class="switch transparent">
+            <input type="checkbox" ng-model="input.general.notifications">
+            <div class="slider round"></div>
+        </label>
+        <span class="switchLabel" ng-if="input.general.notifications">Push-Benachrichtigungen ein</span>
+        <span class="switchLabel" ng-if="!input.general.notifications">Push-Benachrichtigungen aus</span>
+    </div>
+
+    <i class="material-icons doneicon" ng-click="save(); exitSettings()">done</i>
+</div>

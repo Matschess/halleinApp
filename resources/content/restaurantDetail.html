@@ -1,0 +1,79 @@
+<div class="restaurantDetailWrapper">
+    <div class="slider">
+        <div class="restaurantname">
+            <h1>{{data.restaurantname}}</h1>
+            <img ng-src="{{image.path}}" ng-class="{visible: slider.current == $index}" ng-repeat="image in slider.images"/>
+        </div>
+</div>
+<div class="content">
+    <div class="tabs">
+    <div class="link" ng-click="slide('#/home', 'right')"><i class="material-icons">arrow_back</i></div>
+    <div class="tab" ng-repeat="tab in tabSwitcher.tabs" id="tab{{$index}}" ng-class="{'active': $index==tabSwitcher.active}" ng-click="tabGoTo($index)">
+        <i class="material-icons">{{tab.icon}}</i>
+    </div>
+        </div>
+
+        <div class="swiper-container-tabs">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div ng-include="'content/restaurantDetails/general.html'"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="menus">
+                        <div class="meals">
+                            <ng-if ng-if="menu">
+                                <h1 ng-if="menu.appetizer">Vorspeise</h1>
+                                <p>{{menu.appetizer.description}}</p>
+                                <h1 ng-if="menu.mainCourse">Hauptspeise</h1>
+                                <p>{{menu.mainCourse.description}}</p>
+                                <h1 ng-if="menu.dessert">Nachspeise</h1>
+                                <p>{{menu.dessert.description}}</p>
+                            </ng-if>
+                            <ng-if ng-if="!menu">
+
+                                <h1>Kein Menü</h1>
+                                <div class="notification">
+                                    <label class="switch">
+                                        <input type="checkbox" ng-checked="input.newsletter">
+                                        <div class="slider round"></div>
+                                    </label>
+                                    <span class="switchLabel">Bei Eintrag benachrichtigen</span>
+                                </div>
+                            </ng-if>
+                        </div>
+                        <div class="notification">
+                            <label class="switch">
+                                <input type="checkbox" ng-checked="input.newsletter">
+                                <div class="slider round"></div>
+                            </label>
+                            <span class="switchLabel">Jede Woche benachrichtigen</span>
+                        </div>
+
+                        <div class="days">
+                            <div class="action prev" ng-click="prevDay()"><i class="material-icons">keyboard_arrow_left</i></div>
+                            <div class="action next" ng-click="nextDay()"><i class="material-icons">keyboard_arrow_right</i></div>
+                            <div class="swiper-container-menus">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide day">Sonntag</div>
+                                    <div class="swiper-slide day">Montag</div>
+                                    <div class="swiper-slide day">Dienstag</div>
+                                    <div class="swiper-slide day">Mittwoch</div>
+                                    <div class="swiper-slide day">Donnerstag</div>
+                                    <div class="swiper-slide day">Freitag</div>
+                                    <div class="swiper-slide day">Samstag</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div ng-include="'content/restaurantDetails/location.html'"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div ng-include="'content/restaurantDetails/feedback.html'"></div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+</div>
+</div>

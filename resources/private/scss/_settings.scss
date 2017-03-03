@@ -1,0 +1,58 @@
+.settingsWrapper {
+  height: 100%;
+  background-image: url('../../assets/imgs/start_background_blur.jpg');
+  background-size: cover;
+  padding: 20px;
+h1{
+  font-size: 35px;
+}
+  h2 {
+    font-size: 20px;
+  }
+  .block{
+    margin-bottom: 10px;
+  }
+  .interests {
+    .interest {
+      display: inline-block;
+      background-color: #34495e;
+      padding: 0 25px;
+      border-radius: 50px;
+      margin-right: 8px;
+      margin-top: 8px;
+      opacity: .5;
+      span {
+        display: inline-block;
+        font-size: 13px;
+        color: #fff;
+        padding: 12px 0px;
+      }
+      &.active {
+        opacity: 1;
+        background-image: url('../../assets/icons/done_white.png');
+        background-size: 18px;
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        padding: 0 32px 0 25px;
+      }
+      &.food {
+        background-color: #EE8360;
+      }
+    }
+  }
+  .checkbox {
+    margin-bottom: 10px;
+    div:before {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    input:checked + div:before {
+      background-color: rgba(0, 0, 0, 0.5);
+      background-image: url('../../assets/icons/done_white.png');
+      background-size: cover;
+    }
+  }
+  .switch, .switchLabel{
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+}

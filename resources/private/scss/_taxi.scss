@@ -1,0 +1,60 @@
+.taxiWrapper {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../../assets/imgs/taxi_background.png');
+  background-size: cover;
+  background-position: center;
+  font-size: 0;
+  padding-top: 30px;
+  h1 {
+    font-size: 45px;
+    color: #fff;
+    padding-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .taxis {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    margin-top: 20px;
+    text-align: center;
+    .taxi {
+      display: inline-block;
+      font-size: 16px;
+      background: rgba(0,0,0,.2);
+      color: #fff;
+      padding: 10px 20px;
+      margin-top: 20px;
+      margin-right: 10px;
+      border: 2px solid #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: transform .2s ease;
+      .phone{
+        display: none;
+        transform: rotateX(180deg);
+        i{
+          font-size: 18px;
+          vertical-align: middle;
+        }
+        span{
+          vertical-align: middle;
+        }
+      }
+      &.showPhone{
+        transition: transform .4s ease;
+        transform: rotateX(180deg);
+        .name{
+          display: none;
+        }
+        .phone{
+          display: inline-block;
+        }
+      }
+      &:active{
+        background: rgba(0,0,0,.3);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div class="interestsWrapper">
+    <div class="container">
+        <h1>Interessen</h1>
+        <p>Wofür interessieren Sie sich? Was essen Sie gerne und worüber möchten Sie benachrichtigt werden?</p>
+        <h2>Tippen für Auswahl:</h2>
+        <div class="interests">
+            <div class="interest" ng-class="[{active: interest.active}, interest.type]" ng-repeat="interest in interests" ng-click="interest.active = !interest.active">
+                <span>{{interest.name}}</span>
+            </div>
+        </div>
+        <div ng-click="save()"><i class="material-icons doneicon">done</i></div>
+    </div>
+</div>
