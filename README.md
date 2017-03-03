@@ -15,7 +15,7 @@ Install [Node.js](https://nodejs.org/en/download/) and [Yarn](https://yarnpkg.co
 
 Open commandline in halleinAppDashboard/
 ```
-$ npm install --global gulp-cli
+$ npm install -g gulp-cli
 $ yarn
 ```
 Then type
