@@ -2,7 +2,7 @@ myApp.controller('mainController', function ($scope, $cordovaPreferences) {
     $scope.slide = function (href, direction) {
         slide(href, direction);
     }
-
+    /*
     document.addEventListener("deviceready", function () {
         $cordovaPreferences.fetch('general')
             .success(function (value) {
@@ -17,4 +17,5 @@ myApp.controller('mainController', function ($scope, $cordovaPreferences) {
                 }
             });
     }, false);
+    */
 });

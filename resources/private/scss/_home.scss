@@ -21,6 +21,7 @@
 
 .arrowTop, .arrowRight, .arrowBottom, .arrowLeft {
   //animation: fadeOut 8s 2s infinite;
+  font-size: 14px;
 }
 
 .arrowTop {
@@ -47,6 +48,7 @@
   i {
     font-size: 20px;
     color: #fff;
+    vertical-align: middle;
   }
   .description {
     display: inline-block;
@@ -83,6 +85,7 @@
   i {
     font-size: 20px;
     color: #fff;
+    vertical-align: middle;
   }
   .description {
     display: inline-block;
@@ -96,14 +99,14 @@
 
 .description {
   border-radius: 20px;
-  &.yellow {
-    background-color: rgba(39, 0, 134, 0.5);
+  &.purple {
+    background-color: rgba(77, 48, 145, 0.61);
   }
   &.grey {
     background-color: rgba(101, 94, 94, 0.7);
   }
   &.red {
-    background-color: rgba(238, 131, 96, 0.7);
+    background-color: rgba(221, 45, 57, 0.59);
   }
   &.white {
     background-color: rgba(255, 255, 255, .3);

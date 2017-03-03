@@ -1,6 +1,5 @@
 .restaurantDetailWrapper {
   .slider {
-
     img {
       position: absolute;
       width: 100%;
@@ -32,7 +31,7 @@
     top: 200px;
     .tabs {
       font-size: 0;
-      box-shadow: 0px -10px 25px 0px rgba(0,0,0,.4);
+      box-shadow: 0px -10px 25px 0px rgba(0, 0, 0, .4);
       .tab, div {
         display: inline-block;
         color: #000;
@@ -58,7 +57,7 @@
       width: calc(50% - 40px);
       vertical-align: top;
       padding: 5px;
-      span, a, i{
+      span, a, i {
         vertical-align: middle;
       }
       &.border {
@@ -81,7 +80,7 @@
         &.opensSoon, &.closesSoon {
           color: #f39c12;
         }
-        .times{
+        .times {
           position: absolute;
           margin-left: 34px;
           line-height: 25px;
@@ -144,63 +143,82 @@
       }
     }
   }
-  .bubbles {
-    height: calc(100vh - 200px - 62px - 60px);
-    overflow: auto;
-    .bubble {
-      position: relative;
-      background-color: rgba(192, 192, 192, 0.2);
-      width: calc(80% - 20px);
-      margin-bottom: 20px;
-      margin-left: 10%;
-      padding: 10px;
-      border-radius: 10px;
-      &:first-of-type{
-        margin-top: 20px;
-      }
-      .text, .rating {
-        display: inline-block;
-        vertical-align: middle;
-      }
-      .text {
-        width: 90%;
-      }
-      .rating {
-        font-size: 40px;
-        color: #c86a55;
-        width: calc(10% - 10px);
-        text-align: right;
-        &.four {
-          color: #ee8360;
+  .feedback {
+    text-align: center;
+    .bubbles {
+      height: calc(100vh - 200px - 62px - 60px - 20px);
+      overflow: auto;
+      .bubble {
+        position: relative;
+        background-color: rgba(192, 192, 192, 0.2);
+        width: calc(80% - 20px);
+        margin-bottom: 20px;
+        margin-left: 10%;
+        padding: 20px 10px;
+        border-radius: 10px;
+        text-align: left;
+        &:first-of-type{
+          margin-top: 20px;
         }
-        &.three {
-          color: #ff9064;
+        .text, .rating {
+          display: inline-block;
+          vertical-align: middle;
         }
-        &.two {
-          color: #ffaa5a;
+        .text {
+          width: 80%;
         }
-        &.one {
-          color: #ffb74a;
+        .rating {
+          font-size: 40px;
+          color: #c86a55;
+          width: calc(20% - 10px);
+          text-align: right;
+          &.four {
+            color: #ee8360;
+          }
+          &.three {
+            color: #ff9064;
+          }
+          &.two {
+            color: #ffaa5a;
+          }
+          &.one {
+            color: #ffb74a;
+          }
         }
-      }
-      &:after {
-        content: '';
-        position: absolute;
-        border-style: solid;
-        border-width: 15px 15px 15px 0;
-        border-color: transparent rgba(192, 192, 192, 0.2);
-        display: block;
-        width: 0;
-        z-index: 1;
-        left: -15px;
-        top: 45px;
-      }
-      &:nth-of-type(2n+2) {
         &:after {
-          border-width: 15px 0 15px 15px;
-          left: auto;
-          right: -15px;
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 15px 15px 15px 0;
+          border-color: transparent rgba(192, 192, 192, 0.2);
+          display: block;
+          width: 0;
+          z-index: 1;
+          left: -15px;
+          top: 45px;
         }
+        &:nth-of-type(2n+2) {
+          &:after {
+            border-width: 15px 0 15px 15px;
+            left: auto;
+            right: -15px;
+          }
+        }
+      }
+    }
+    .noFeedback{
+      margin-top: 20px;
+      h1 {
+        text-transform: uppercase;
+        color: #000;
+        font-family: "Gotham Medium";
+        font-size: 15px;
+      }
+      p {
+        font-family: "Gotham Book";
+        color: #000;
+        font-size: 12px;
+        margin: 0;
       }
     }
   }
@@ -221,7 +239,6 @@
       font-family: "Gotham Book";
       color: #000;
       font-size: 12px;
-
     }
   }
   .notification {

@@ -176,7 +176,7 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
             .then(function (result) {
                 var text = result.input1;
                 var data = {
-                    restaurant: 2,
+                    restaurant: restaurant,
                     rating: 5,
                     text: text
                 }

@@ -6,7 +6,9 @@ myApp.controller('interestsController', function ($scope, $cordovaPreferences) {
         {name: 'Burger', type: 'food'},
         {name: 'Salate', type: 'food'},
         {name: 'Pommes', type: 'food'},
-        {name: 'Suppen', type: 'food'}
+        {name: 'Nudelgerichte', type: 'food'},
+        {name: 'Wild', type: 'food'},
+        {name: 'Fisch', type: 'food'}
     ]
 
     $scope.save = function () {
