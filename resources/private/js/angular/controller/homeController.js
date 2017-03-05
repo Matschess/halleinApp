@@ -1,8 +1,10 @@
 myApp.controller('homeController', function ($scope, $http) {
+    /*
     $http.get('http://api.openweathermap.org/data/2.5/weather?q=Hallein&appid=643bed1f37977f3f065cd32dfcc6bd5f')
         .then(function (response) {
             $scope.weather = response.data.weather[0].description;
         })
+    */
 
     var swiperStartHorizontal = new Swiper('.swiper-container-start-horizontal', {
         direction: 'horizontal',
