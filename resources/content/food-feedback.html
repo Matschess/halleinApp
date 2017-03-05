@@ -3,7 +3,7 @@
     <h1>{{feedbackSlider.option[feedbackSlider.current].name}}</h1><img src="assets/icons/up_down.png">
     </span>
     <div class="bubbles">
-        <div class="bubble" ng-repeat="bubble in bubbles">
+        <div class="bubble" ng-class="{showDate: bubble.showDate}" mn-touch hold="bubble.showDate = !bubble.showDate" ng-repeat="bubble in bubbles">
             <div class="restaurant">{{bubble.restaurant}}</div>
             <div class="text">{{bubble.text}}</div>
             <div class="rating" ng-class="{four: bubble.rating == 4, three: bubble.rating == 3, two: bubble.rating == 2, one: bubble.rating == 1}">{{bubble.rating}}</div>

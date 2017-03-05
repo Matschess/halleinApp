@@ -26,6 +26,20 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
     $http.get(URL + '/restaurants?id=' + restaurant)
         .then(function (response) {
             $scope.data = response.data[0];
+            if(!$scope.data.imgs){
+                $scope.slider = {
+                    current: 0,
+                    images: [
+                        'assets/imgs/local1.jpg'
+                    ]
+                }
+            }
+            else {
+                $scope.slider = {
+                    current: 0,
+                    images: $scope.data.imgs.filename
+                }
+            }
             $scope.data.websiteFormatted = $scope.data.website;
             if ($scope.data.websiteFormatted.startsWith('http://')) {
                 $scope.data.websiteFormatted = $scope.data.websiteFormatted.substring(7)
@@ -40,7 +54,6 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
             }
             if ($scope.data.websiteFormatted.length > 14) {
                 $scope.data.websiteFormatted = "Website"
-
             }
         })
 
@@ -70,15 +83,6 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
         }, function () {
             delete $scope.menu;
         });
-    }
-
-    $scope.slider = {
-        current: 0,
-        images: [
-            {path: 'assets/imgs/local1.jpg'},
-            {path: 'assets/imgs/local2.jpg'},
-            {path: 'assets/imgs/local3.jpg'}
-        ]
     }
 
     swiperMenus.on('onSlideChangeStart', function () {

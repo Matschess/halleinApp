@@ -115,6 +115,23 @@
           right: -14px;
         }
       }
+      &.showDate{
+        animation: pinch .3s ease forwards;
+        @keyframes pinch{
+          0%, 100%{
+            transform: scale(1);
+          }
+          40%{
+            transform: scale(1.05);
+          }
+        }
+        .restaurant{
+          opacity: 1;
+        }
+        .text, .rating{
+          opacity: 0;
+        }
+      }
     }
   }
 }
