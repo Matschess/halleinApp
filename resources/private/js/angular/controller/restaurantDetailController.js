@@ -37,7 +37,7 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
             else {
                 $scope.slider = {
                     current: 0,
-                    images: $scope.data.imgs.filename
+                    images: $scope.data.imgs
                 }
             }
             $scope.data.websiteFormatted = $scope.data.website;

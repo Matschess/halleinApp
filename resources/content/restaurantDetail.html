@@ -2,7 +2,7 @@
     <div class="slider">
         <div class="restaurantname">
             <h1>{{data.restaurantname}}</h1>
-            <img ng-src="{{image}}" ng-class="{visible: slider.current == $index}" ng-repeat="image in slider.images"/>
+            <img ng-src="{{image.url}}" ng-class="{visible: slider.current == $index}" ng-repeat="image in slider.images"/>
         </div>
 </div>
 <div class="content">

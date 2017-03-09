@@ -17,7 +17,7 @@ myApp.controller('foodRestaurantsController', function ($scope, $http) {
                         for(var j = 0; j < restaurants.length; j++){
                             if(!restaurants[j].mainImg){
                                 restaurants[j].mainImg = {
-                                    filename: 'assets/imgs/local1.jpg'
+                                    url: 'assets/imgs/local1.jpg'
                                 };
                             }
                             if(menus[i].restaurant == restaurants[j].id){
