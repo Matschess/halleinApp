@@ -1,4 +1,4 @@
-myApp.controller('restaurantDetailController', function ($scope, $routeParams, $http, $timeout, $cordovaDialogs) {
+myApp.controller('restaurantDetailController', function ($scope, $routeParams, $http, $timeout, $cordovaToast, $cordovaDialogs) {
     var swiperTabs = new Swiper('.swiper-container-tabs', {
         direction: 'horizontal'
     })
@@ -26,6 +26,7 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
     $http.get(URL + '/restaurants?id=' + restaurant)
         .then(function (response) {
             $scope.data = response.data[0];
+            console.log($scope.data);
             if(!$scope.data.imgs){
                 $scope.slider = {
                     current: 0,
@@ -56,6 +57,10 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
                 $scope.data.websiteFormatted = "Website"
             }
         })
+
+    $scope.showToast = function(text) {
+        $cordovaToast.showShortBottom(text);
+    }
 
     getFeedback();
 
@@ -115,20 +120,12 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
         ]
     };
 
-    $scope.options = [
-        {icon: 'local_parking'},
-        {icon: 'pets'},
-        {icon: 'credit_card'}
-    ]
-
-    $http.get(URL + '/openingTimes?get=opens,closesHalf,opensHalf,closes&weekday=' + weekday + '&restaurant=' + restaurant)
+    $http.get(URL + '/openingTimes?get=opens,closes&weekday=' + weekday + '&restaurant=' + restaurant)
         .then(function (response) {
             var times = response.data[0];
             $scope.openingTimes = {
                 times: {
                     opens: timeStringToDate(times.opens),
-                    closesHalf: timeStringToDate(times.closesHalf),
-                    opensHalf: timeStringToDate(times.opensHalf),
                     closes: timeStringToDate(times.closes)
                 }
             };
@@ -159,7 +156,7 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
         }
         else {
             $scope.openingTimes.status = 'closed';
-            $scope.openingTimes.text = 'Geschlossen';
+            $scope.openingTimes.text = 'Jetzt geschlossen';
         }
     }
 

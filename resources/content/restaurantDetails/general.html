@@ -2,18 +2,22 @@
     <p>{{data.description}}</p>
     <div class="left">
     <div class="icons">
-        <i class="material-icons" ng-repeat="option in options">{{option.icon}}</i>
+        <i class="material-icons" ng-if="data.parking" ng-click="showToast('Parkmöglichkeit gegeben')">local_parking</i>
+        <i class="material-icons" ng-if="data.studentMeals" ng-click="showToast('Schülermahlzeit angeboten')">school</i>
+        <i class="material-icons" ng-if="data.reservation" ng-click="showToast('Reservierung möglich')">book</i>
+        <i class="material-icons" ng-if="data.petsWelcome" ng-click="showToast('Haustiere willkommen')">pets</i>
+        <i class="material-icons" ng-if="data.groupsWelcome" ng-click="showToast('Gruppen willkommen')">people</i>
+        <i class="material-icons" ng-if="data.acceptsCard" ng-click="showToast('Kartenzahlung möglich')">credit_card</i>
+        <img src="assets/icons/kelteneuro.png" ng-if="data.acceptsKelteneuro" ng-click="showToast('Kelteneuro akzeptiert')"/>
     </div>
     </div>
     <div class="right border">
         <div ng-if="data.tel"><i class="material-icons">phone</i><a href="tel:{{data.tel}}">{{data.tel}}</a></div>
         <div ng-if="data.website"><i class="material-icons">public</i><a ng-href="{{data.website}}">{{data.websiteFormatted}}</a></div>
-        <div class="openingTimes" ng-class="openingTimes.status">
+        <div class="openingTimes" ng-class="openingTimes.status" ng-if="openingTimes">
             <i class="material-icons">access_time</i><span>{{openingTimes.text}}:</span>
             <div class="times">
-            {{openingTimes.times.opens | date: 'HH'}}-{{openingTimes.times.closesHalf | date: 'HH'}} Uhr und
-            <br/>
-            {{openingTimes.times.opensHalf | date: 'HH'}}-{{openingTimes.times.closes | date: 'HH'}} Uhr
+            {{openingTimes.times.opens | date: 'HH'}}-{{openingTimes.times.closes | date: 'HH'}} Uhr
             </div>
         </div>
     </div>
