@@ -41,6 +41,12 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
                     images: $scope.data.imgs
                 }
             }
+            if($scope.data.color){
+                var color = $scope.data.color;
+                $('.restaurantDetailWrapper .content .tabs .tab').css('border-color', color);
+                $('.restaurantDetailWrapper .content .right.border').css('border-color', color);
+                $('.restaurantDetailWrapper .content .feedback .bubbles .rating').css('color', color);
+            }
             $scope.data.websiteFormatted = $scope.data.website;
             if ($scope.data.websiteFormatted.startsWith('http://')) {
                 $scope.data.websiteFormatted = $scope.data.websiteFormatted.substring(7)
@@ -138,19 +144,11 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
             $scope.openingTimes.status = 'opensSoon';
             $scope.openingTimes.text = 'Öffnet bald';
         }
-        else if (openingTimes.times.closesHalf - now > 0 && (openingTimes.times.closesHalf - now) / 60000 <= 60) {
-            $scope.openingTimes.status = 'closesSoon';
-            $scope.openingTimes.text = 'Schließt bald';
-        }
-        else if (openingTimes.times.opensHalf - now > 0 && (openingTimes.times.opensHalf - now) / 60000 <= 60) {
-            $scope.openingTimes.status = 'opensSoon';
-            $scope.openingTimes.text = 'Öffnet bald';
-        }
         else if (openingTimes.times.closes - now > 0 && (openingTimes.times.closes - now) / 60000 <= 60) {
             $scope.openingTimes.status = 'closesSoon';
             $scope.openingTimes.text = 'Schließt bald';
         }
-        else if (openingTimes.times.opens < now && openingTimes.times.closesHalf > now || openingTimes.times.opensHalf < now && openingTimes.times.closes > now) {
+        else if (openingTimes.times.opens < now && openingTimes.times.closes > now) {
             $scope.openingTimes.status = 'opened';
             $scope.openingTimes.text = 'Jetzt geöffnet';
         }

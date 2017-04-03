@@ -8,7 +8,7 @@
             <div class="sex" ng-class="{'active': $index==sexes.active}" ng-repeat="sex in sexes.options" ng-click="sexes.active = $index">{{sex.name}}</div></div>
         <br>
         <h2>Geburtstag:</h2>
-            <input type="date" class="birthday" ng-class="{'active': input.birthday}" ng-model="input.birthday"/>
+            <input type="date" class="birthday" ng-class="{'active': validDate == true}" ng-change="validDate = validateBirthday(input.birthday)" ng-model="input.birthday"/>
         <br>
         <br>
         <label class="checkbox">

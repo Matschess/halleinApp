@@ -103,12 +103,9 @@ input {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .2s;
+    transition: .2s;
     vertical-align: middle;
-    &.transparent {
-
-    }
   }
 
   .slider:before {
@@ -119,8 +116,8 @@ input {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .2s;
+    transition: .2s;
   }
 
   &.transparent {
