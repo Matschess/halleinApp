@@ -26,6 +26,7 @@ myApp.controller('foodRestaurantsController', function ($scope, $http) {
                             }
                         }
                     }
+                    $scope.restaurants = restaurants;
                 }, function() {
                 $scope.restaurants = restaurants;
             })

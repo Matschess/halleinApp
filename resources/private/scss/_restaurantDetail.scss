@@ -98,18 +98,8 @@
         }
         .times {
           position: absolute;
-          color: #000;
           margin-left: 34px;
           line-height: 25px;
-          &.opened {
-            color: #27ae60;
-          }
-          &.closed {
-            color: #c0392b;
-          }
-          &.opensSoon, &.closesSoon {
-            color: #f39c12;
-          }
         }
       }
     }
