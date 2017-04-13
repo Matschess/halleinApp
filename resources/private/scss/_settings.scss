@@ -3,9 +3,9 @@
   background-image: url('../../assets/imgs/start_background_blur.jpg');
   background-size: cover;
   padding: 20px;
-h1{
-  font-size: 35px;
-}
+  h1 {
+    font-size: 35px;
+  }
   h2 {
     font-size: 20px;
   }
@@ -17,18 +17,14 @@ h1{
       margin-left: 10px;
     }
   }
-  .block{
-    margin-bottom: 10px;
-  }
   .interests {
     .interest {
       display: inline-block;
-      background-color: #34495e;
+      background-color: rgba(52, 73, 94, .5);
       padding: 0 25px;
       border-radius: 50px;
       margin-right: 8px;
       margin-top: 8px;
-      opacity: .5;
       span {
         display: inline-block;
         font-size: 13px;
@@ -37,6 +33,7 @@ h1{
       }
       &.active {
         opacity: 1;
+        background-color: rgb(52, 73, 94);
         background-image: url('../../assets/icons/done_white.png');
         background-size: 18px;
         background-position: right 10px center;
@@ -44,7 +41,10 @@ h1{
         padding: 0 32px 0 25px;
       }
       &.food {
-        background-color: #EE8360;
+        background-color: rgba(238, 131, 96, .5);
+        &.active{
+          background-color: rgb(238, 131, 96);
+        }
       }
     }
   }
@@ -59,7 +59,7 @@ h1{
       background-size: cover;
     }
   }
-  .switch, .switchLabel{
+  .switch, .switchLabel {
     display: inline-block;
     margin-bottom: 10px;
   }

@@ -6,6 +6,13 @@ myApp.controller('foodRestaurantsController', function ($scope, $http) {
             var data = {
                 date: dateToString(today)
             }
+            for(var j = 0; j < restaurants.length; j++) {
+                if (!restaurants[j].mainImg) {
+                    restaurants[j].mainImg = {
+                        url: 'assets/imgs/local1.jpg'
+                    };
+                }
+            }
             $http({
                 url: URL + '/menus',
                 method: 'GET',
@@ -14,21 +21,12 @@ myApp.controller('foodRestaurantsController', function ($scope, $http) {
                     var menus = response.data;
                     for(var i = 0; i < menus.length; i++){
                         for(var j = 0; j < restaurants.length; j++){
-                            if(!restaurants[j].mainImg){
-                                restaurants[j].mainImg = {
-                                    url: 'assets/imgs/local1.jpg'
-                                };
-                            }
                             if(menus[i].restaurant == restaurants[j].id){
                                 restaurants[j].menu = menus[i];
                             }
                         }
-                        if(i == menus.length - 1){
-                            $scope.restaurants = restaurants;
-                        }
                     }
                 }, function() {
-                console.log(restaurants);
                 $scope.restaurants = restaurants;
             })
         })
