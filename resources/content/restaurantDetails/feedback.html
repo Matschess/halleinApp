@@ -6,9 +6,9 @@
     </div>
 </div>
 <div class="noFeedback" ng-if="!bubbles.length">
-    <h1>Kein Feedback</h1>
-    <p>Sei der Erste</p>
+    <h1>{{ 'NOFEEDBACK' | translate }}</h1>
+    <p>{{ 'BETHEFIRST' | translate }}</p>
 </div>
 
-<div class="actionbar" ng-click="giveFeedback()">Feedback geben</div>
+<div class="actionbar" ng-click="giveFeedback()">{{ 'GIVEFEEDBACK' | translate }}</div>
 </div>

@@ -1,4 +1,4 @@
-myApp.controller('restaurantDetailController', function ($scope, $routeParams, $http, $timeout, $cordovaToast, $cordovaDialogs) {
+myApp.controller('restaurantDetailController', function ($scope, $routeParams, $http, $timeout, $translate, $cordovaToast, $cordovaDialogs) {
     var swiperTabs = new Swiper('.swiper-container-tabs', {
         direction: 'horizontal'
     })
@@ -26,7 +26,9 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
     $http.get(URL + '/restaurants?id=' + restaurant)
         .then(function (response) {
             $scope.data = response.data[0];
-            console.log($scope.data);
+            if($translate.use() == 'en_US' && $scope.data.description_en) {
+                $scope.data.description = $scope.data.description_en;
+            }
             if(!$scope.data.imgs){
                 $scope.slider = {
                     current: 0,
@@ -135,28 +137,22 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
     function analyzeOpeningTimes(openingTimes) {
         var now = new Date();
         if (openingTimes.times.opens - now > 0 && (openingTimes.times.opens - now) / 60000 <= 60) {
-            $scope.openingTimes.status = 'opensSoon';
-            $scope.openingTimes.text = 'Öffnet bald';
+            $scope.openingTimes.status = 'openingSoon';
         }
         else if (openingTimes.times.closesHalf - now > 0 && (openingTimes.times.closesHalf - now) / 60000 <= 60) {
-            $scope.openingTimes.status = 'closesSoon';
-            $scope.openingTimes.text = 'Schließt bald';
+            $scope.openingTimes.status = 'closingSoon';
         }
         else if (openingTimes.times.opensHalf - now > 0 && (openingTimes.times.opensHalf - now) / 60000 <= 60) {
-            $scope.openingTimes.status = 'opensSoon';
-            $scope.openingTimes.text = 'Öffnet bald';
+            $scope.openingTimes.status = 'openingSoon';
         }
         else if (openingTimes.times.closes - now > 0 && (openingTimes.times.closes - now) / 60000 <= 60) {
-            $scope.openingTimes.status = 'closesSoon';
-            $scope.openingTimes.text = 'Schließt bald';
+            $scope.openingTimes.status = 'closingSoon';
         }
         else if (openingTimes.times.opens < now && openingTimes.times.closesHalf > now || openingTimes.times.opensHalf < now && openingTimes.times.closes > now) {
             $scope.openingTimes.status = 'opened';
-            $scope.openingTimes.text = 'Jetzt geöffnet';
         }
         else {
             $scope.openingTimes.status = 'closed';
-            $scope.openingTimes.text = 'Jetzt geschlossen';
         }
     }
 

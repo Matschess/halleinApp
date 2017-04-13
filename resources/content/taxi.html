@@ -1,5 +1,5 @@
 <div class="taxiWrapper" ng-controller="taxiController">
-    <h1>Taxi rufen</h1>
+    <h1>{{ 'CALLATAXI' | translate }}</h1>
     <div class="taxis">
         <a href="tel:{{taxi.phone}}" class="taxi" ng-class="{showPhone: taxiList.showPhone == $index}" mn-touch hold="showPhone($index)" ng-repeat="taxi in taxiList.taxis">
             <span class="name">{{taxi.name}}</span>

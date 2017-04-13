@@ -1,20 +1,21 @@
 <div class="establishmentWrapper">
     <div class="container">
-        <h1>Einrichtung</h1>
-
-        <p>Wir benötigen einige Daten, um die App für Dich einzigartig zu gestalten. Die Daten werden nur auf Deinem Gerät gespeichert und nicht weitergegeben.</p>
-        <h2>Geschlecht:</h2>
+        <h1>{{ 'ESTABLISHMENT' | translate }}</h1>
+        <p>{{ 'ESTABLISHMENT_DESCR' | translate }}</p>
+        <h2>{{ 'GENDER' | translate }}:</h2>
         <div class="sexes">
-            <div class="sex" ng-class="{'active': $index==sexes.active}" ng-repeat="sex in sexes.options" ng-click="sexes.active = $index">{{sex.name}}</div></div>
+            <div class="sex" ng-class="{'active': sexes.active==0}" ng-click="sexes.active = 0">{{ 'MALE' | translate }}</div>
+            <div class="sex" ng-class="{'active': sexes.active==1}" ng-click="sexes.active = 1">{{ 'FEMALE' | translate }}</div>
+        </div>
         <br>
-        <h2>Geburtstag:</h2>
-            <input type="date" class="birthday" ng-class="{'active': input.birthday}" ng-model="input.birthday"/>
+        <h2>{{ 'BIRTHDAY' | translate }}:</h2>
+        <input type="date" class="birthday" ng-class="{'active': input.birthday}" ng-model="input.birthday"/>
         <br>
         <br>
         <label class="checkbox">
             <input type="checkbox" ng-model="input.pupil">
             <div></div>
-            <span>Ich bin Schüler</span>
+            <span>{{ 'IMPUPIL' | translate }}</span>
         </label>
         <div ng-click="save()"><i class="material-icons doneicon">done</i></div>
     </div>

@@ -1,9 +1,8 @@
 <div class="newsletterWrapper">
     <div class="container">
-        <h1>Newsletter</h1>
-        <p>Regelmäßig versenden wir Neuigkeiten, Veranstaltungen und Informationen in Form eines Newsletters.
-            Melde Dich ganz einfach an.</p>
-        <h2>Email-Adresse:</h2>
+        <h1>{{ 'NEWSLETTER' | translate }}</h1>
+        <p>{{ 'NEWSLETTER_DESCR' | translate }}</p>
+        <h2>{{ 'EMAILADDRESS' | translate }}:</h2>
         <form name="newsletterForm">
             <input type="email" name="email" ng-model="input.email"/>
         </form>

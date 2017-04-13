@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngCordova', 'ngTouch', 'mn', 'ngColorThief']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngCordova', 'ngTouch', 'mn', 'pascalprecht.translate']);
 
 var URL = 'http://46.38.236.5:443';
 
@@ -35,3 +35,12 @@ myApp.config(function ($routeProvider) {
             redirectTo: "/"
         });
 });
+
+// Translations
+myApp.config(['$translateProvider', function ($translateProvider) {
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'lang/',
+        suffix: '.json'
+    });
+    $translateProvider.preferredLanguage('en_US');
+}]);

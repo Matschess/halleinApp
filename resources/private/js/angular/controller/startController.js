@@ -1,8 +1,8 @@
-myApp.controller('startController', function ($scope) {
+myApp.controller('startController', function ($scope, $rootScope, $translate) {
     $scope.arrows = {
         left: {
             color: 'purple',
-            text: 'Taxi',
+            text: $translate.instant('TAXI'),
             link: {
                 swiper: 'startHorizontal',
                 slide: 0
@@ -10,7 +10,7 @@ myApp.controller('startController', function ($scope) {
         },
         bottom: {
             color: 'grey',
-            text: 'Einstellungen',
+            text: $translate.instant('SETTINGS'),
             link: {
                 swiper: 'startVertical',
                 slide: 1
@@ -18,11 +18,17 @@ myApp.controller('startController', function ($scope) {
         },
         right: {
             color: 'red',
-            text: 'Essen',
+            text: $translate.instant('CULINARY'),
             link: {
                 swiper: 'startHorizontal',
                 slide: 2
             }
         }
     }
+
+    $rootScope.$on('$translateChangeSuccess', function () {
+        $scope.arrows.left.text = $translate.instant('TAXI');
+        $scope.arrows.bottom.text = $translate.instant('SETTINGS');
+        $scope.arrows.right.text = $translate.instant('CULINARY');
+    });
 });

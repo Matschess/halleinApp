@@ -9,6 +9,14 @@ h1{
   h2 {
     font-size: 20px;
   }
+  .changeLanguage{
+    i, span{
+      vertical-align: middle;
+    }
+    span{
+      margin-left: 10px;
+    }
+  }
   .block{
     margin-bottom: 10px;
   }

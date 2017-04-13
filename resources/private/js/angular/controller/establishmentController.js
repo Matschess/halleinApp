@@ -1,12 +1,9 @@
 myApp.controller('establishmentController', function ($scope, $cordovaToast, $cordovaPreferences) {
-    $scope.sexes = {
-        options: [
-            {name: 'MÄNNLICH'},
-            {name: 'WEIBLICH'}]
-    }
+    $scope.sexes = {};
     $scope.input = {};
 
     $scope.save = function () {
+        console.log($scope.sexes);
         if (!Number.isInteger($scope.sexes.active)) {
             $cordovaToast.showShortBottom('Bitte Geschlecht angeben');
             return;

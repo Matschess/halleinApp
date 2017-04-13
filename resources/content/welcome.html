@@ -1,13 +1,16 @@
-<div class="welcomeWrapper" ng-click="slide('#/establishment')">
+<div class="welcomeWrapper" ng-controller="welcomeController">
+    <div class="changeLanguage" ng-click="changeLang()"><i class="material-icons">language</i><span>{{ 'LANGUAGE' | translate }}</span></div>
     <div class="container">
-        <h1>Hallo</h1>
+        <h1></h1>
+        <p></p>
+        <h1>{{ 'HELLO' | translate }}</h1>
         <h3>
-            Willkommen in der brandneuen
+            {{ 'WELCOME' | translate }}
             <br/>
             Hallein App
         </h3>
-        <h3 class="start">
-            Zum Starten berühren
+        <h3 class="start" ng-click="slide('#/establishment')" >
+            {{ 'TOUCHTOCONTINUE' | translate }}
         </h3>
     </div>
 </div>

@@ -1,8 +1,8 @@
 <div class="interestsWrapper">
     <div class="container">
-        <h1>Interessen</h1>
-        <p>Wofür interessierst du Dich? Was isst du gerne und worüber möchtest Du benachrichtigt werden?</p>
-        <h2>Tippen für Auswahl:</h2>
+        <h1>{{ 'INTERESTS' | translate }}</h1>
+        <p>{{ 'INTERESTS_DESCR' | translate }}</p>
+        <h2>{{ 'TAPFORSELECTION' | translate }}:</h2>
         <div class="interests">
             <div class="interest" ng-class="[{active: interest.active}, interest.type]" ng-repeat="interest in interests" ng-click="interest.active = !interest.active">
                 <span>{{interest.name}}</span>

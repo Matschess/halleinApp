@@ -6,7 +6,7 @@ myApp.controller('foodController', function ($scope) {
         },
         bottom: {
             color: 'white',
-            text: 'Feedbacks'
+            text: 'Feedback'
         }
     }
 });

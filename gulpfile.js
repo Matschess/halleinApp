@@ -6,7 +6,7 @@ var srcDir = 'resources/';
 var directory = 'www/';
 
 gulp.task('default', function () {
-    gulp.start('html', 'content', 'copy', 'css', 'scss', 'js');
+    gulp.start('html', 'content', 'lang', 'copy', 'css', 'scss', 'js');
 });
 
 gulp.task('html', function () {
@@ -20,6 +20,13 @@ gulp.task('content', function () {
     return watch(srcDir + 'content/', { ignoreInitial: false }, function() {
         gulp.src(srcDir + 'content/**/*')
             .pipe(gulp.dest(directory + 'content/'));
+    })
+});
+
+gulp.task('lang', function () {
+    return watch(srcDir + 'lang/', { ignoreInitial: false }, function() {
+        gulp.src(srcDir + 'lang/**/*')
+            .pipe(gulp.dest(directory + 'lang/'));
     })
 });
 

@@ -1,6 +1,5 @@
-myApp.controller('newsletterController', function ($scope, $cordovaToast, $cordovaPreferences) {
+myApp.controller('newsletterController', function ($scope, $cordovaToast, $cordovaPreferences, $http) {
     $scope.input = {};
-    $scope.planer = 'sfsd';
     var permissions = cordova.plugins.permissions;
     permissions.hasPermission(permissions.GET_ACCOUNTS, checkPermissionCallback, null);
 
@@ -39,13 +38,19 @@ myApp.controller('newsletterController', function ($scope, $cordovaToast, $cordo
             $cordovaToast.showShortBottom('Bitte Email eingeben');
             return;
         }
+        var email = $scope.input.email;
         var newsletter = {
             active: true,
-            email: $scope.input.email
+            email: email
         }
         $cordovaPreferences.store('newsletter', newsletter).then(function(){
             $cordovaPreferences.store('setupDone', true).then(function(){
                 slide('#/home');
+                // Joomla-Newsletter
+                $http({
+                    method: 'GET',
+                    url: 'https://www.hallein.com/index.php?option=com_acymailing&gtask=sub&task=optin&hiddenlists=1&user[email]=' + email
+                });
             })
         });
     }

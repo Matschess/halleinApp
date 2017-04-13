@@ -1,4 +1,4 @@
-myApp.controller('settingsController', function ($scope, $cordovaPreferences, $cordovaToast) {
+myApp.controller('settingsController', function ($scope, $cordovaPreferences, $translate, $cordovaToast) {
     $scope.input = {};
 
     document.addEventListener("deviceready", function () {
@@ -15,6 +15,16 @@ myApp.controller('settingsController', function ($scope, $cordovaPreferences, $c
                 $scope.input.newsletter = value;
             });
     }, false);
+
+    $scope.changeLang = function() {
+        switch ($translate.use()) {
+            case 'de_AT':
+                $translate.use('en_US');
+                break;
+            case 'en_US':
+                $translate.use('de_AT');
+        }
+    }
 
     $scope.save = function () {
         $cordovaPreferences.store('general', $scope.input.general).success(function() {

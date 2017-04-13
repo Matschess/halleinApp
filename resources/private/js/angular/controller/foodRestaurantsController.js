@@ -2,7 +2,6 @@ myApp.controller('foodRestaurantsController', function ($scope, $http) {
     $http.get(URL + '/restaurants?get=id,restaurantname')
         .then(function (response) {
             var restaurants = response.data;
-            console.log(restaurants);
             var today = new Date();
             var data = {
                 date: dateToString(today)
@@ -28,6 +27,9 @@ myApp.controller('foodRestaurantsController', function ($scope, $http) {
                             $scope.restaurants = restaurants;
                         }
                     }
-                })
+                }, function() {
+                console.log(restaurants);
+                $scope.restaurants = restaurants;
+            })
         })
 });
