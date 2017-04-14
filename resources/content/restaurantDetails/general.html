@@ -12,7 +12,7 @@
     </div>
     </div>
     <div class="right border">
-        <div ng-if="data.tel"><i class="material-icons">phone</i><a href="tel:{{data.tel}}">{{data.tel}}</a></div>
+        <div ng-if="data.tel"><i class="material-icons">phone</i><a href="tel:{{data.telIn}}">{{data.telN}}</a></div>
         <div ng-if="data.website"><i class="material-icons">public</i><a ng-href="{{data.website}}">{{data.websiteFormatted}}</a></div>
         <div class="openingTimes" ng-class="openingTimes.status" ng-if="openingTimes">
             <i class="material-icons">access_time</i><span ng-if="openingTimes.status == 'openingSoon'">{{ 'OPENINGSOON' | translate }}</span><span ng-if="openingTimes.status == 'opened'">{{ 'OPENED' | translate }}</span><span ng-if="openingTimes.status == 'closingSoon'">{{ 'CLOSINGSOON' | translate }}</span><span ng-if="openingTimes.status == 'closed'">{{ 'CLOSED' | translate }}</span>

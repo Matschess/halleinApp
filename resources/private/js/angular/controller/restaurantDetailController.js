@@ -187,8 +187,15 @@ myApp.controller('restaurantDetailController', function ($scope, $routeParams, $
                     url: URL + '/feedback',
                     method: 'POST',
                     params: data
-                }).then(function () {
-                    getFeedback();
+                }).then(function (response) {
+                    var data = response.data;
+                    if(data.status == 'published') {
+                        $cordovaToast.showShortBottom('Danke! Feedback veröffentlicht.');
+                        getFeedback();
+                    }
+                    else if(data.status == 'queue'){
+                        $cordovaToast.showShortBottom('Danke! Feedack wartet auf Freigabe.');
+                    }
                 });
             });
     }
