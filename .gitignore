@@ -5,20 +5,9 @@ node_modules/
 ## Yarn
 yarn.lock
 
-# Created by https://www.gitignore.io/api/apachecordova
-
-### ApacheCordova ###
-# Apache Cordova generated files and directories
-hooks/
-bin/*
-!/plugins
-!/plugins/android.json
-!/plugins/fetch.json
-plugins/*
-platforms/*
-www/*
-
-# End of https://www.gitignore.io/api/apachecordova
+## Public
+/assets/
+public/
 
 # Created by https://www.gitignore.io/api/phpstorm
 

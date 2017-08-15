@@ -1,8 +1,8 @@
 {
-  "name": "halleinApp",
+  "name": "halleinAppDashboard",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/Matschess/halleinApp.git",
+  "repository": "https://github.com/Matschess/halleinAppDashboard.git",
   "license": "MIT",
   "dependencies": {
     "gulp": "^3.9.1",

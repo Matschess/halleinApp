@@ -42,5 +42,5 @@ myApp.config(['$translateProvider', function ($translateProvider) {
         prefix: 'lang/',
         suffix: '.json'
     });
-    $translateProvider.preferredLanguage('en_US');
+    $translateProvider.preferredLanguage('de_AT');
 }]);
