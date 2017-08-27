@@ -1,0 +1,24 @@
+<div class="foodRestaurantsWrapper" ng-controller="foodRestaurantsController">
+    <div class="restaurants left">
+        <div class="link" ng-click="slide('#/food/restaurants/detail/' + restaurant.id)" ng-repeat="restaurant in restaurants | limitTo: restaurants.length / 2 + 1">
+            <div class="title" ng-class="{noRadius: restaurant.menu}" ng-style="{'background-image':'url(' + restaurant.mainImg.url + ')'}">
+                <h1>{{restaurant.restaurantname}}</h1>
+            </div>
+            <div class="meal" ng-if="restaurant.menu">
+                <p ng-if="restaurant.menu.mainCourse.description.length > 23">{{restaurant.menu.mainCourse.description | limitTo: 20}}...</p>
+                <p ng-if="restaurant.menu.mainCourse.description.length <= 23">{{restaurant.menu.mainCourse.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="restaurants right">
+        <div class="link" ng-click="slide('#/food/restaurants/detail/' + restaurant.id)" ng-repeat="restaurant in restaurants | limitTo: restaurants.length / -2">
+            <div class="title" ng-class="{noRadius: restaurant.menu}" ng-style="{'background-image':'url(' + restaurant.mainImg.url + ')'}">
+                <h1>{{restaurant.restaurantname}}</h1>
+            </div>
+            <div class="meal" ng-if="restaurant.menu">
+                <p ng-if="restaurant.menu.mainCourse.description.length > 23">{{restaurant.menu.mainCourse.description | limitTo: 20}}...</p>
+                <p ng-if="restaurant.menu.mainCourse.description.length <= 23">{{restaurant.menu.mainCourse.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

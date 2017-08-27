@@ -1,0 +1,13 @@
+<div class="interestsWrapper">
+    <div class="container">
+        <h1>{{ 'INTERESTS' | translate }}</h1>
+        <p>{{ 'INTERESTS_DESCR' | translate }}</p>
+        <h2>{{ 'TAPFORSELECTION' | translate }}:</h2>
+        <div class="interests">
+            <div class="interest" ng-class="[{active: interest.active}, interest.type]" ng-repeat="interest in interests" ng-click="interest.active = !interest.active">
+                <span>{{interest.name}}</span>
+            </div>
+        </div>
+        <div ng-click="save()"><i class="material-icons doneicon">done</i></div>
+    </div>
+</div>

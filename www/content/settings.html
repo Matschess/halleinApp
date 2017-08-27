@@ -1,0 +1,40 @@
+<div class="settingsWrapper" ng-controller="settingsController">
+    <h1>{{ 'SETTINGS' | translate }}</h1>
+
+    <div class="changeLanguage" ng-click="changeLang()"><i class="material-icons">language</i><span>{{ 'LANGUAGE' | translate }}</span></div>
+    <br/>
+    <div class="block">
+        <h2>{{ 'GENERAL' | translate }}:</h2>
+        <label class="checkbox">
+            <input type="checkbox" ng-model="input.general.pupil">
+            <div></div>
+            <span>{{ 'IMPUPIL' | translate }}</span>
+        </label>
+        <br>
+    </div>
+    <div class="block">
+        <h2>{{ 'INTERESTS' | translate }}:</h2>
+        <div class="interests">
+            <div class="interest" ng-class="[{active: interest.active}, interest.type]" ng-repeat="interest in input.interests" ng-click="interest.active = !interest.active">
+                <span>{{interest.name}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="block">
+        <h2>{{ 'NOTIFICATIONS' | translate }}:</h2>
+        <label class="switch transparent">
+            <input type="checkbox" ng-model="input.newsletter.active">
+            <div class="slider round"></div>
+        </label>
+        <span class="switchLabel" ng-if="input.newsletter.active">{{ 'NEWSLETTER' | translate }} {{ 'ON' | translate }}</span>
+        <span class="switchLabel" ng-if="!input.newsletter.active">{{ 'NEWSLETTER' | translate }} {{ 'OFF' | translate }}</span>
+        <br/>
+        <label class="switch transparent">
+            <input type="checkbox" ng-model="input.general.notifications">
+            <div class="slider round"></div>
+        </label>
+        <span class="switchLabel" ng-if="input.general.notifications">{{ 'PUSHNOTIFICATIONS' | translate }} {{ 'ON' | translate }}</span>
+        <span class="switchLabel" ng-if="!input.general.notifications">{{ 'PUSHNOTIFICATIONS' | translate }} {{ 'OFF' | translate }}</span>
+    </div>
+    <i class="material-icons doneicon" ng-click="save(); exitSettings()">done</i>
+</div>

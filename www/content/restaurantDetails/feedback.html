@@ -1,0 +1,14 @@
+<div class="feedback">
+<div class="bubbles" ng-if="bubbles.length">
+    <div class="bubble" ng-class="{four: bubble.rating == 4, three: bubble.rating == 3, two: bubble.rating == 2, one: bubble.rating == 1}" ng-repeat="bubble in bubbles">
+        <div class="text">{{bubble.text}}</div>
+        <div class="rating">{{bubble.rating}}</div>
+    </div>
+</div>
+<div class="noFeedback" ng-if="!bubbles.length">
+    <h1>{{ 'NOFEEDBACK' | translate }}</h1>
+    <p>{{ 'BETHEFIRST' | translate }}</p>
+</div>
+
+<div class="actionbar" ng-click="giveFeedback()">{{ 'GIVEFEEDBACK' | translate }}</div>
+</div>
