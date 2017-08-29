@@ -1,12 +1,14 @@
 {
-  "name": "halleinAppDashboard",
+  "name": "HalleinApp",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/Matschess/halleinAppDashboard.git",
+  "main": "gulp.js",
+  "repository": "https://github.com/Matschess/halleinApp.git",
   "license": "MIT",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-jsonminify": "^1.0.0",
     "gulp-sass": "^2.3.2",
     "gulp-watch": "^4.3.11"
   }

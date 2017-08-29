@@ -1,38 +1,57 @@
-var gulp = require('gulp');
-var watch = require('gulp-watch');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    cssmin = require('gulp-cssmin'),
+    concat = require('gulp-concat'),
+    jsonminify = require('gulp-jsonminify');
+
+// ---------- CONFIG ----------
+var dest = {
+    styles: 'www/public/css',
+    scripts: 'www/public/js',
+    content: 'www/content',
+    assets: 'www/assets',
+    languages: 'www/lang'
+}
+// ---------- [END] CONFIG ----------
+
+gulp.task('styles', function () {
+    return gulp.src('resources/private/scss/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(cssmin())
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest(dest.styles));
+})
+
+gulp.task('scripts', function () {
+    return gulp.src('resources/private/js/**/*.js')
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest(dest.scripts));
+});
+
+gulp.task('content', function () {
+    return gulp.src('resources/content/**/*.html')
+        .pipe(gulp.dest(dest.content));
+});
+
+gulp.task('assets', function () {
+    return gulp.src('resources/private/assets/**/*')
+        .pipe(gulp.dest(dest.assets));
+});
+
+gulp.task('languages', function () {
+    return gulp.src('resources/lang/*.json')
+        .pipe(jsonminify())
+        .pipe(gulp.dest(dest.languages));
+});
+
+gulp.task('watch', function () {
+    gulp.watch(['resources/private/scss/*.scss'], ['styles'])
+    gulp.watch(['resources/private/js/**/*.js'], ['scripts'])
+    gulp.watch(['resources/content/**/*.html'], ['content'])
+    gulp.watch(['resources/private/assets/**/*'], ['assets'])
+    gulp.watch(['resources/lang/*.json'], ['languages'])
+})
 
 gulp.task('default', function () {
-    gulp.start('copy', 'css', 'scss', 'js');
-});
-
-gulp.task('copy', function () {
-    return watch('private/assets/**/*', { ignoreInitial: false }, function() {
-        gulp.src('private/assets/**/*')
-            .pipe(gulp.dest('assets/'));
-    })
-});
-
-gulp.task('css', function () {
-    return watch('private/css/*', { ignoreInitial: false }, function() {
-        gulp.src('private/css/*')
-            .pipe(gulp.dest('public/css'));
-    })
-});
-
-gulp.task('scss', function () {
-    return watch('private/scss/*.scss', { ignoreInitial: false }, function() {
-        gulp.src('private/scss/*.scss')
-            .pipe(sass())
-            .pipe(gulp.dest('public/css'));
-    });
-});
-
-gulp.task('js', function () {
-    return watch('private/js/**/*', { ignoreInitial: false }, function() {
-        gulp.src(['private/js/angular/routing.js', 'private/js/angular/controller/**/*', 'private/js/app.js'])
-            .pipe(concat('app.js'))
-            .pipe(gulp.dest('public/js'));
-    });
+    gulp.start('styles', 'scripts', 'content', 'assets', 'languages', 'watch');
 });
