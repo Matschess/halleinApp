@@ -1,14 +1,19 @@
-# halleinAppDashboard
+# Hallein App
 ## Setup
-### Gulp
+### Yarn
 Install [Node.js](https://nodejs.org/en/download/) and [Yarn](https://yarnpkg.com/en/docs/install)
 
-Open commandline in halleinAppDashboard/
+### Cordova
+Open commandline in halleinApp/
+```
+$ cordova prepare
+```
+Then type
 ```
 $ npm install -g gulp-cli
 $ yarn
 ```
-Then type
+At last compile your files to www/
 ```
 $ gulp
 ```
