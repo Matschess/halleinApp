@@ -8,6 +8,7 @@ var gulp = require('gulp'),
 var dest = {
     styles: 'www/public/css',
     scripts: 'www/public/js',
+    html: 'www/html',
     content: 'www/content',
     assets: 'www/assets',
     languages: 'www/lang'
@@ -28,9 +29,14 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest(dest.scripts));
 });
 
+gulp.task('html', function () {
+    return gulp.src('resources/index.html')
+        .pipe(gulp.dest(dest.content));
+});
+
 gulp.task('content', function () {
     return gulp.src('resources/content/**/*.html')
-        .pipe(gulp.dest(dest.content));
+        .pipe(gulp.dest(dest.html));
 });
 
 gulp.task('assets', function () {
@@ -47,11 +53,12 @@ gulp.task('languages', function () {
 gulp.task('watch', function () {
     gulp.watch(['resources/private/scss/*.scss'], ['styles'])
     gulp.watch(['resources/private/js/**/*.js'], ['scripts'])
+    gulp.watch(['resources/index.html'], ['html'])
     gulp.watch(['resources/content/**/*.html'], ['content'])
     gulp.watch(['resources/private/assets/**/*'], ['assets'])
     gulp.watch(['resources/lang/*.json'], ['languages'])
 })
 
 gulp.task('default', function () {
-    gulp.start('styles', 'scripts', 'content', 'assets', 'languages', 'watch');
+    gulp.start('styles', 'scripts', 'html', 'content', 'assets', 'languages', 'watch');
 });
